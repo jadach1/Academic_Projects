@@ -1,11 +1,13 @@
 
 Jacob Adach
-Student: Computer Programming and Analysis			
-Seneca College
+Student At Seneca College
+Computer Programming and Analysis
+
+Description:  These are some of my academic projects and personal projects from home.			
 
 
 
-Web Service Application 						November 2016
+Web Service Application 				November  2016
 Seneca College, Computer Programming and Analysis
 Tools:              Microsoft Visual Studios, ASP.NET 4.5, Microsoft Azure, C#, JavaScript
 Description:   A web application that allows users to create and or modify content on their Account
@@ -15,7 +17,8 @@ Perform User Authentication & Authorization
  Provide users with the ability to add, delete and edit content through persistent storage
 Use of AJAX techniques to asynchronously update web page
 
-Hospital Database Design    				     			April 2016
+
+Hospital Database Design    				     	April 2016
 Seneca College, Computer Programming and Analysis         
 Tools:              SQL, MySQL, Oracle, DDL, DML
 Description:  Design and implement a database for a hospital
@@ -24,7 +27,8 @@ Execute and analyze system using DDL and DML test scripts
 Identify problems and resolve them
 Query, update and add data to database using SQL and MySQL
 
-Seneca College, Computer Programming and Analysis 				April 2016
+
+Seneca College, Computer Programming and Analysis 	April 2016
 Tools:             Visual Studio 2015, C++/C++11, Graphviz, Linux, Windows
 Project:         Factory Simulation
 Description: Create a factory consisting of a network of machines
