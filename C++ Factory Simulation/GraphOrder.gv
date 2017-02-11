@@ -1,0 +1,16 @@
+digraph Orders{
+node[style="filled",fillcolor="grey"]
+"I5"->"Fardad Soleimanloo==Dell Precision 3600"[color=black]
+"DDR 266"->"Fardad Soleimanloo==Dell Precision 3600"[color=black]
+"DDR 333"->"Fardad Soleimanloo==Dell Precision 3600"[color=black]
+"I7"->"Joseph Hughes==HP Z230"[color=black]
+"DDR 300"->"Joseph Hughes==HP Z230"[color=black]
+"I7"->"Chris Szalwinski==HP Z350"[color=black]
+"DDR 333"->"Chris Szalwinski==HP Z350"[color=black]
+"SSD"->"Chris Szalwinski==HP Z350"[color=black]
+"NVIDIAGPU"->"Chris Szalwinski==HP Z350"[color=black]
+"I7"->"Elliott Coleshill==HP Apollo 1000"[color=black]
+"DDR 400"->"Elliott Coleshill==HP Apollo 1000"[color=black]
+"POWER SUPPLY"->"Elliott Coleshill==HP Apollo 1000"[color=black]
+"AMDGPU"->"Elliott Coleshill==HP Apollo 1000"[color=black]
+}

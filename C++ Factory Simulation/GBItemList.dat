@@ -1,0 +1,9 @@
+I5           | CPU          | Remove CPU          | 320 | Intel I5 Central Processing Unit
+I7           | CPU          | Remove CPU          | 340 | Intel I7 Central Processing Unit
+DDR 266      | Memory       | Remove Memory       | 410 | Samsung DDR-266 Memory Stick
+DDR 300      | Memory       | Remove Memory       | 420 | Samsung DDR-300 Memory Stick
+DDR 333      | Memory       | Remove Memory       | 430 | Samsung DDR-333 Memory Stick
+DDR 400      | Memory       | Remove Memory       | 440 | Samsung DDR-400 Memory Stick
+AMDGPU       | GPU          | Remove GPU          | 525 | AMD Nano
+NVidiaGPU    | GPU          | Remove GPU          | 550 | Nvidia Geforce 750M
+Power Supply | Power Supply | Remove Power Supply | 100 | 

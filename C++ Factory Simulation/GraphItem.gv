@@ -1,0 +1,48 @@
+digraph Task{
+node[style="filled",fillcolor="grey"]
+"Item-I5"[shape=box][color=blue]
+"Installer-CPU"[color=green]
+"Remover-REMOVE CPU"[color=red]
+"Item-I5"->"Installer-CPU"
+"Item-I5"->"Remover-REMOVE CPU"
+"Item-I7"[shape=box][color=blue]
+"Installer-CPU"[color=green]
+"Remover-REMOVE CPU"[color=red]
+"Item-I7"->"Installer-CPU"
+"Item-I7"->"Remover-REMOVE CPU"
+"Item-DDR 266"[shape=box][color=blue]
+"Installer-MEMORY"[color=green]
+"Remover-REMOVE MEMORY"[color=red]
+"Item-DDR 266"->"Installer-MEMORY"
+"Item-DDR 266"->"Remover-REMOVE MEMORY"
+"Item-DDR 300"[shape=box][color=blue]
+"Installer-MEMORY"[color=green]
+"Remover-REMOVE MEMORY"[color=red]
+"Item-DDR 300"->"Installer-MEMORY"
+"Item-DDR 300"->"Remover-REMOVE MEMORY"
+"Item-DDR 333"[shape=box][color=blue]
+"Installer-MEMORY"[color=green]
+"Remover-REMOVE MEMORY"[color=red]
+"Item-DDR 333"->"Installer-MEMORY"
+"Item-DDR 333"->"Remover-REMOVE MEMORY"
+"Item-DDR 400"[shape=box][color=blue]
+"Installer-MEMORY"[color=green]
+"Remover-REMOVE MEMORY"[color=red]
+"Item-DDR 400"->"Installer-MEMORY"
+"Item-DDR 400"->"Remover-REMOVE MEMORY"
+"Item-AMDGPU"[shape=box][color=blue]
+"Installer-GPU"[color=green]
+"Remover-REMOVE GPU"[color=red]
+"Item-AMDGPU"->"Installer-GPU"
+"Item-AMDGPU"->"Remover-REMOVE GPU"
+"Item-NVIDIAGPU"[shape=box][color=blue]
+"Installer-GPU"[color=green]
+"Remover-REMOVE GPU"[color=red]
+"Item-NVIDIAGPU"->"Installer-GPU"
+"Item-NVIDIAGPU"->"Remover-REMOVE GPU"
+"Item-POWER SUPPLY"[shape=box][color=blue]
+"Installer-POWER SUPPLY"[color=green]
+"Remover-REMOVE POWER SUPPLY"[color=red]
+"Item-POWER SUPPLY"->"Installer-POWER SUPPLY"
+"Item-POWER SUPPLY"->"Remover-REMOVE POWER SUPPLY"
+}
