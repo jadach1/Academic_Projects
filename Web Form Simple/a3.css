@@ -1,0 +1,108 @@
+/*I declare that the attached assignment is wholly my own work in 
+accordance with Seneca Academic Policy. No part of this assignment has 
+been copied manually or electronically from any other source (including 
+web sites) except for the information supplied by the instructor and / or 
+made available in this assignment for my use. 
+I also declare that no part of this assignment has been distributed to other 
+students.
+<br>
+Signed:____JAOOB ADACH_____(put your name)
+Dated: ____December 9th, 2015_ (put the date)*/
+
+body {
+	margin: auto;
+ border:3px solid grey;
+    padding: 10px;	
+	background-color: grey;
+	width: 90%;
+}
+form {
+	 border:1px solid black;
+	margin: auto;
+	width: 650px;	
+}
+mark {
+	background-color: grey;
+}
+
+div.foot  /* Mark location*/
+{
+	width: 550px;
+	background-color: grey;
+	margin: auto;	
+	text-align: center;
+}
+div.main {
+	background-color: white;
+	box-shadow: 2px 2px 1px grey;
+	width: 750px;
+	position: absolute;
+	left: 300px;
+}
+h1 {
+	background-color:red;
+	color:white;
+	height: 100px;;
+}
+p.a {
+	font-weight: bold;
+	font-size: 18pt;
+}
+
+input:focus {
+	border-color: green;
+}
+
+#q, #r { /*Cubmit and reset*/
+	background-color: red;
+	color: white;
+	box-shadow: 2px 2px 1px grey;
+	font-weight: bold;
+	position: relative;
+	left: 200px;
+}
+/*How did you hear about us? */
+div.one {
+	box-shadow: 2px 2px 1px grey;
+	border: 1px solid black;
+	width: 50%;
+	position: relative;
+	left: 125px;
+	border-radius: 25px;	
+}
+#m1, #m2, #m3, #m4 {
+	float: left;
+}
+#n {
+	vertical-align:0%;
+}
+/*----------------------Form Positioning----------------*/
+#a, #b , #c, #test , #d, #f ,#g, #h, #i, #j, #k, #l, #provinces, #o{
+	position: absolute;
+	left: 200px;
+	 box-shadow: 2px 2px 1px grey;
+}
+ 
+#p {
+	position: relative;
+	left: 175px;
+}
+#e {
+	position: relative;
+	left: 250px;
+	 box-shadow: 2px 2px 1px grey;
+}
+
+#ac {
+	position: relative;
+	left: 250px;
+}
+#ab{
+	position: relative;
+	left: 200px;
+}
+
+
+
+
+

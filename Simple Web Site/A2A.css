@@ -1,0 +1,66 @@
+/*I declare that the attached assignment is wholly my own work in
+accordance with Seneca Academic Policy. No part of this assignment has
+been copied manually or electronically from any other source (including
+web sites) except for the information supplied by the instructor and / or
+made available in this assignment for my use.
+I also declare that no part of this assignment has been distributed to other
+students.
+Signed:___Jacob Adach, 062271143___ (put your name)
+Dated: ______11/9/2015______________ (put the date)*/
+body {
+	
+	background-color: black;
+}
+h1 {
+	color: red;	
+	text-align: center;
+}
+
+img.one {
+	position: relative;
+	left: 200px;
+}
+img.two {
+	position: relative;
+	left: 500px;
+	top:0px;
+}
+img.three 
+{
+position: relative;
+bottom: 0px;
+left: 200px;
+}
+img.six{
+	position: relative;
+	left:0px;
+}
+/*Div Div Div */
+div.alpha {
+position: relative;
+left: 0px;
+}
+
+
+
+/*Links and hovers*/
+a:link {
+	color: red;
+	background-color: black;
+	border: 1px solid white;
+	text-decoration: none;
+	font-size: 16pt;
+	list-style-type:none;
+}
+a:hover {
+	background-color: purple;
+	color: grey;
+	list-style-type:none;
+}
+p.b {
+	color: red;
+	font-size: 16px;
+	position: relative;
+	left: 550px;
+	top: 300px;
+}

@@ -1,0 +1,79 @@
+body {
+	background-color: purple;
+}
+h1 {	
+	text-align: center;
+	height: 300px;
+	background-color: yellow;
+	color: purple;
+	margin:0px;
+	border:1px solid black;
+	padding:0;
+	line-height: 200px;
+	font-style: bold;	
+}
+nav ul li {
+	display: inline;
+	position: relative;
+	left: 500px;
+}
+
+ul li a {
+	text-align: center;
+	background-color: orange;
+	text-decoration:none;
+	list-style-type:none;
+	padding: 3px 5px 10px 3px;
+	margin:1px;
+	color: white;	
+}
+
+ul li a:hover {
+	background-color: grey;
+	color: purple;
+	font-style:bold;
+	font-family:Impact, Charcoal, sans-serif;
+	box-shadow: 10px 10px 10px black;
+}
+div {
+	position: relative;
+	left:500px;
+	overflow: auto;
+	height: 500px;
+	width: 800px;
+}
+table {
+	border: 3px solid orange;
+	background-color: black;
+	width: 780px;
+}
+
+caption {
+	font-size: 16pt;
+	font-style: bold;
+	color: red;
+}
+th {
+	border: 2px solid orange;
+	color: yellow;
+	font-family: Arial, Helvetica, sans-serif;
+}
+td {
+	color: orange;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+img.se {
+	width:200px;
+	height:200px;
+}
+footer {
+	background: purple;
+	margin:auto;
+	position: relative;
+	top:50px;
+	height:200px;
+	text-align: center;
+	line-height: 150px;
+	font-size:16pt
+}

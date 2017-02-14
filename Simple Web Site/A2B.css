@@ -1,0 +1,79 @@
+h1 {	
+	text-align: center;
+	height: 300px;
+	background-image: url("../Media/General.gif");
+	margin:0px;
+	border:1px solid blue;
+	padding:0;
+	line-height: 200px;
+	font-style: bold;	
+}
+div.movie {
+	position: relative;
+	left: 500px;
+	bottom: 300px;
+}
+h1:hover {
+	background-image: url("../Media/General2.gif");
+}
+div.main {
+//margin-bottom: 1000px;
+//margin-top: 150px;
+margin:0px;
+border:1px solid blue;
+padding:0;
+position: relative;
+top:0%;
+background-color: blue;
+}
+div.select {
+background-color: blue;	
+position: relative;
+}
+ul {
+	list-style-type: none;
+	display: block;
+}
+ul li a{
+ display: block;
+                  text-decoration: none;
+                  padding: 7px 15px 3px 15px;
+                  background: purple;
+                  color: black; 
+                  margin-bottom: 2px;
+                  height:30px; /* Width and height of top-level nav items */
+                  width:300px;
+                  text-align:center;
+				  font-style: bold;
+				  font-size: 16pt;
+}
+section.one
+{
+	position: relative;
+	margin:0px;
+	bottom: 300px;
+
+}
+
+ul li a:hover {
+	background: grey;
+	color: yellow;
+	padding: 5px;
+}
+
+footer {
+	background: aqua;
+	margin:auto;
+	height:200px;
+	text-align: center;
+		line-height: 150px;
+	font-size:16pt
+	position: relative;
+	bottom: 500px;
+}
+
+footer:hover {
+	background: black;
+	color: red;
+}
+

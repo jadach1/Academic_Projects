@@ -1,0 +1,79 @@
+body {
+	background-color: aqua;
+}
+h1 {	
+	text-align: center;
+	height: 300px;
+	background-color: teal;
+	color: aqua;
+	margin:0px;
+	border:1px solid blue;
+	padding:0;
+	line-height: 200px;
+	font-style: bold;	
+}
+nav ul li {
+	display: inline;
+	position: relative;
+	left: 300px;
+}
+
+ul li a {
+	text-align: center;
+	background-color: brown;
+	text-decoration:none;
+	list-style-type:none;
+	padding: 3px 5px 10px 3px;
+	margin:1px;
+	color: orange;	
+}
+
+ul li a:hover {
+	background-color: maroon;
+	color: grey;
+	font-style:bold;
+	font-family:Impact, Charcoal, sans-serif;
+	box-shadow: 10px 10px 10px black;
+}
+div {
+	position: relative;
+	left:400px;
+	overflow: auto;
+	height: 500px;
+	width: 800px;
+}
+table {
+	border: 3px solid yellow;
+	background-color: black;
+	width: 780px;
+}
+
+caption {
+	font-size: 16pt;
+	font-style: bold;
+	color: red;
+}
+th {
+	border: 2px solid yellow;
+	color: yellow;
+	font-family: Arial, Helvetica, sans-serif;
+}
+td {
+	color: yellow;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+img.se {
+	width:200px;
+	height:200px;
+}
+footer {
+	background: teal;
+	margin:auto;
+	position: relative;
+	top:50px;
+	height:200px;
+	text-align: center;
+	line-height: 150px;
+	font-size:16pt
+}
