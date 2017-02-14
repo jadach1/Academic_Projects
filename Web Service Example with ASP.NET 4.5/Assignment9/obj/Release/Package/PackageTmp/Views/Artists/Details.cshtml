@@ -1,0 +1,181 @@
+﻿@model Assignment9.Controllers.ArtistWithMedia
+
+@{
+    ViewBag.Title = "Details";
+    var PhotoCount = 0;
+    var VideoCount = 0;
+    var AudioCount = 0;
+    var DocumentCount = 0;
+    var userAccount = new Assignment9.Controllers.UserAccount(User as System.Security.Claims.ClaimsPrincipal);
+}
+
+<h2>Artist Details - @Model.Name</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.Name)</b>
+        </dt>
+
+        <dd class="table-striped">
+            @Html.DisplayFor(model => model.Name)
+            <hr />
+        </dd>
+
+        <dt>
+           <b>@Html.DisplayNameFor(model => model.BirthName)</b>
+        </dt>
+
+        <dd class="table-striped">
+            @Html.DisplayFor(model => model.BirthName)
+            <hr />
+        </dd>
+
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.BirthOrStartDate)</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthOrStartDate)
+            <hr />
+        </dd>
+
+        <dt>
+           <b>@Html.DisplayNameFor(model => model.UrlArtist)</b>
+        </dt>
+
+        <dd>
+           <img src=" @Html.DisplayFor(model => model.UrlArtist)" width="150" height="100" alt="Artist @Model.Name"/>
+            <hr />
+         </dd>
+
+        <dt>
+           <b>@Html.DisplayNameFor(model => model.Genre)</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+            <hr />
+        </dd>
+
+        <dt>
+           <b>@Html.DisplayNameFor(model => model.Profile)</b>
+        </dt>
+
+        <dd>
+            <div class="panel panel-default panel-body">
+                @Html.Raw(Model.Profile)
+            </div>        
+        </dd> 
+        
+
+       
+    @foreach (var item in Model.ArtistMedia.Where(m => m.ContentType.Contains("image/")))
+    {
+        if (PhotoCount == 0)
+        {
+        <dt>
+            <b>Photo's</b>
+        </dt>
+        }
+        <dd>
+            <div>
+                <span>@item.Caption</span><br />
+                <img src="~/media/@item.StringId"
+                     alt="@item.Caption" title="@item.Caption"
+                     width="150" height="100" />
+            </div>
+            <hr />
+        </dd>
+        PhotoCount++;
+    }
+            
+       
+
+        @foreach (var item in Model.ArtistMedia.Where(m => m.ContentType.Contains("video/")))
+        {
+            if (VideoCount == 0)
+            {
+                <dt>
+                    <b>Video's</b>
+                </dt>
+            }
+            <dd>
+                <div>
+                    <span>@item.Caption</span><br />
+                    <video src="~/media/@item.StringId"
+                         alt="@item.Caption" title="@item.Caption"
+                         width="150" height="100" controls="controls"/>
+                </div>
+                <hr />
+            </dd>
+            VideoCount++;
+        }
+
+        @foreach (var item in Model.ArtistMedia.Where(m => m.ContentType.Contains("audio/")))
+        {
+            if (AudioCount == 0)
+            {
+                <dt>
+                    <b>Music</b>
+                </dt>
+            }
+            <dd>
+                <div>
+                    <span>@item.Caption</span><br />
+                    <audio src="~/media/@item.StringId"
+                           alt="@item.Caption" title="@item.Caption"
+                           width="150" height="100" controls="controls"/>
+                </div>
+                <hr />
+            </dd>
+            AudioCount++;
+        }        
+          
+        @foreach (var item in Model.ArtistMedia.Where(m => m.ContentType.Contains("application/")))
+        {
+            if (DocumentCount== 0)
+            {
+                <dt>
+                    <b>Documents</b>
+                </dt>
+            }
+            <dd>
+                <div>
+                    <span>@item.Caption</span><br />
+                    <a href="~/media/@item.StringId/download">
+                      @if (item.ContentType.Contains("wordprocessing"))
+                        {
+                        <img src="~/Word.png" alt="" height="75" width="50" />
+                        }
+                        @if (item.ContentType.Contains("spreadsheet"))
+                        {
+                        <img src="~/Excel.png" alt="" height="75" width="50" />
+                        }
+                        @if (item.ContentType.Contains("presentation"))
+                        {
+                        <img src="~/PP.jpg" alt="" height="75" width="50" />
+                        }
+                        @* "application/vnd.openxmlformats-officedocument.wordprocessingml.document"*@
+                    </a>
+                </div>
+                <hr />
+            </dd>
+            DocumentCount++;
+        } 
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index") |
+    @if (userAccount.HasRoleClaim("Coordinator"))
+    {
+        @Html.ActionLink("Add Album for Artist", "AddAlbumToArtist", new { id = Model.Id }) 
+        @Html.Raw(" | ");
+    }
+      @if(userAccount.HasRoleClaim("Executive"))
+      {
+        @Html.ActionLink("Add Media for Artist", "AddArtistMedia", new { id = Model.Id })
+      }
+    
+</p>

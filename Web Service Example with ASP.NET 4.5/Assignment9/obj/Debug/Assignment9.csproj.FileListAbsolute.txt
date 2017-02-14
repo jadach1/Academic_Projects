@@ -1,0 +1,411 @@
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\ApplicationInsights.config
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\csc.exe
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\csc.exe.config
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\csc.rsp
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\csi.exe
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\csi.rsp
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\System.AppContext.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\vbc.exe
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\vbc.exe.config
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\vbc.rsp
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\VBCSCompiler.exe
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\WebAppProjectTemplate-A9.dll.config
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\WebAppProjectTemplate-A9.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\WebAppProjectTemplate-A9.pdb
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Antlr3.Runtime.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\AutoMapper.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\EntityFramework.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\EntityFramework.SqlServer.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.Web.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Newtonsoft.Json.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Owin.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Helpers.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Mvc.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Optimization.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Razor.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Razor.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\WebGrease.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Antlr3.Runtime.pdb
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\AutoMapper.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.Web.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Newtonsoft.Json.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Helpers.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Mvc.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Optimization.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Razor.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Razor.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\EntityFramework.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\EntityFramework.SqlServer.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.csprojResolveAssemblyReference.cache
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\WebAppProjectTemplate-A9.dll
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\WebAppProjectTemplate-A9.pdb
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.InitialCreate.resources
+C:\Users\Jacob\Desktop\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.csproj.GenerateResource.Cache
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\ApplicationInsights.config
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\csc.exe
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\csc.exe.config
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\csc.rsp
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\csi.exe
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\csi.rsp
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\System.AppContext.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\vbc.exe
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\vbc.exe.config
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\vbc.rsp
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\VBCSCompiler.exe
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\WebAppProjectTemplate-A9.dll.config
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\WebAppProjectTemplate-A9.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\WebAppProjectTemplate-A9.pdb
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Antlr3.Runtime.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\AutoMapper.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\EntityFramework.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\EntityFramework.SqlServer.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.Web.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Newtonsoft.Json.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Owin.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Helpers.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Mvc.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Optimization.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Razor.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Razor.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\WebGrease.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Antlr3.Runtime.pdb
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\AutoMapper.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.Web.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Newtonsoft.Json.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Helpers.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Mvc.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Optimization.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.Razor.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Razor.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\EntityFramework.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\EntityFramework.SqlServer.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.csprojResolveAssemblyReference.cache
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.InitialCreate.resources
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.csproj.GenerateResource.Cache
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\WebAppProjectTemplate-A9.dll
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\WebAppProjectTemplate-A9.pdb
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.richtext_DMC.resources
+G:\INT422\Assignment9\Assignment9\bin\ApplicationInsights.config
+G:\INT422\Assignment9\Assignment9\bin\roslyn\csc.exe
+G:\INT422\Assignment9\Assignment9\bin\roslyn\csc.exe.config
+G:\INT422\Assignment9\Assignment9\bin\roslyn\csc.rsp
+G:\INT422\Assignment9\Assignment9\bin\roslyn\csi.exe
+G:\INT422\Assignment9\Assignment9\bin\roslyn\csi.rsp
+G:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\INT422\Assignment9\Assignment9\bin\roslyn\System.AppContext.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\System.Collections.Immutable.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\System.IO.FileSystem.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\System.Reflection.Metadata.dll
+G:\INT422\Assignment9\Assignment9\bin\roslyn\vbc.exe
+G:\INT422\Assignment9\Assignment9\bin\roslyn\vbc.exe.config
+G:\INT422\Assignment9\Assignment9\bin\roslyn\vbc.rsp
+G:\INT422\Assignment9\Assignment9\bin\roslyn\VBCSCompiler.exe
+G:\INT422\Assignment9\Assignment9\bin\roslyn\VBCSCompiler.exe.config
+G:\INT422\Assignment9\Assignment9\bin\WebAppProjectTemplate-A9.dll.config
+G:\INT422\Assignment9\Assignment9\bin\WebAppProjectTemplate-A9.dll
+G:\INT422\Assignment9\Assignment9\bin\WebAppProjectTemplate-A9.pdb
+G:\INT422\Assignment9\Assignment9\bin\Antlr3.Runtime.dll
+G:\INT422\Assignment9\Assignment9\bin\AutoMapper.dll
+G:\INT422\Assignment9\Assignment9\bin\EntityFramework.dll
+G:\INT422\Assignment9\Assignment9\bin\EntityFramework.SqlServer.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.Agent.Intercept.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.DependencyCollector.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.PerfCounterCollector.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.ServerTelemetryChannel.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.Web.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.WindowsServer.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.ApplicationInsights.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Core.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Owin.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Host.SystemWeb.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Cookies.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Facebook.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Google.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.OAuth.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Twitter.dll
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Web.Infrastructure.dll
+G:\INT422\Assignment9\Assignment9\bin\Newtonsoft.Json.dll
+G:\INT422\Assignment9\Assignment9\bin\Owin.dll
+G:\INT422\Assignment9\Assignment9\bin\System.Web.Helpers.dll
+G:\INT422\Assignment9\Assignment9\bin\System.Web.Mvc.dll
+G:\INT422\Assignment9\Assignment9\bin\System.Web.Optimization.dll
+G:\INT422\Assignment9\Assignment9\bin\System.Web.Razor.dll
+G:\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Deployment.dll
+G:\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.dll
+G:\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Razor.dll
+G:\INT422\Assignment9\Assignment9\bin\WebGrease.dll
+G:\INT422\Assignment9\Assignment9\bin\Antlr3.Runtime.pdb
+G:\INT422\Assignment9\Assignment9\bin\AutoMapper.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.DependencyCollector.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.ServerTelemetryChannel.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.Web.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.WindowsServer.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.ApplicationInsights.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\INT422\Assignment9\Assignment9\bin\Newtonsoft.Json.xml
+G:\INT422\Assignment9\Assignment9\bin\System.Web.Helpers.xml
+G:\INT422\Assignment9\Assignment9\bin\System.Web.Mvc.xml
+G:\INT422\Assignment9\Assignment9\bin\System.Web.Optimization.xml
+G:\INT422\Assignment9\Assignment9\bin\System.Web.Razor.xml
+G:\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.xml
+G:\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Deployment.xml
+G:\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Razor.xml
+G:\INT422\Assignment9\Assignment9\bin\EntityFramework.xml
+G:\INT422\Assignment9\Assignment9\bin\EntityFramework.SqlServer.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Core.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Owin.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Host.SystemWeb.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Facebook.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Cookies.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.OAuth.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Google.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Twitter.xml
+G:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+G:\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.csprojResolveAssemblyReference.cache
+G:\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.InitialCreate.resources
+G:\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.richtext_DMC.resources
+G:\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.csproj.GenerateResource.Cache
+G:\INT422\Assignment9\Assignment9\obj\Debug\WebAppProjectTemplate-A9.dll
+G:\INT422\Assignment9\Assignment9\obj\Debug\WebAppProjectTemplate-A9.pdb
+F:\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.InitialCreate.resources
+F:\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.richtext_DMC.resources
+F:\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.csproj.GenerateResource.Cache
+F:\INT422\Assignment9\Assignment9\bin\ApplicationInsights.config
+F:\INT422\Assignment9\Assignment9\bin\roslyn\csc.exe
+F:\INT422\Assignment9\Assignment9\bin\roslyn\csc.exe.config
+F:\INT422\Assignment9\Assignment9\bin\roslyn\csc.rsp
+F:\INT422\Assignment9\Assignment9\bin\roslyn\csi.exe
+F:\INT422\Assignment9\Assignment9\bin\roslyn\csi.rsp
+F:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\INT422\Assignment9\Assignment9\bin\roslyn\System.AppContext.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\System.Collections.Immutable.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\System.IO.FileSystem.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\System.Reflection.Metadata.dll
+F:\INT422\Assignment9\Assignment9\bin\roslyn\vbc.exe
+F:\INT422\Assignment9\Assignment9\bin\roslyn\vbc.exe.config
+F:\INT422\Assignment9\Assignment9\bin\roslyn\vbc.rsp
+F:\INT422\Assignment9\Assignment9\bin\roslyn\VBCSCompiler.exe
+F:\INT422\Assignment9\Assignment9\bin\roslyn\VBCSCompiler.exe.config
+F:\INT422\Assignment9\Assignment9\bin\WebAppProjectTemplate-A9.dll.config
+F:\INT422\Assignment9\Assignment9\bin\WebAppProjectTemplate-A9.dll
+F:\INT422\Assignment9\Assignment9\bin\WebAppProjectTemplate-A9.pdb
+F:\INT422\Assignment9\Assignment9\bin\Antlr3.Runtime.dll
+F:\INT422\Assignment9\Assignment9\bin\AutoMapper.dll
+F:\INT422\Assignment9\Assignment9\bin\EntityFramework.dll
+F:\INT422\Assignment9\Assignment9\bin\EntityFramework.SqlServer.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.Agent.Intercept.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.DependencyCollector.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.Web.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.WindowsServer.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.ApplicationInsights.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Core.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Cookies.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Facebook.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Google.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.OAuth.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Twitter.dll
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Web.Infrastructure.dll
+F:\INT422\Assignment9\Assignment9\bin\Newtonsoft.Json.dll
+F:\INT422\Assignment9\Assignment9\bin\Owin.dll
+F:\INT422\Assignment9\Assignment9\bin\System.Web.Helpers.dll
+F:\INT422\Assignment9\Assignment9\bin\System.Web.Mvc.dll
+F:\INT422\Assignment9\Assignment9\bin\System.Web.Optimization.dll
+F:\INT422\Assignment9\Assignment9\bin\System.Web.Razor.dll
+F:\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Deployment.dll
+F:\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.dll
+F:\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Razor.dll
+F:\INT422\Assignment9\Assignment9\bin\WebGrease.dll
+F:\INT422\Assignment9\Assignment9\bin\Antlr3.Runtime.pdb
+F:\INT422\Assignment9\Assignment9\bin\AutoMapper.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.DependencyCollector.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.Web.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AI.WindowsServer.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.ApplicationInsights.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\INT422\Assignment9\Assignment9\bin\Newtonsoft.Json.xml
+F:\INT422\Assignment9\Assignment9\bin\System.Web.Helpers.xml
+F:\INT422\Assignment9\Assignment9\bin\System.Web.Mvc.xml
+F:\INT422\Assignment9\Assignment9\bin\System.Web.Optimization.xml
+F:\INT422\Assignment9\Assignment9\bin\System.Web.Razor.xml
+F:\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.xml
+F:\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Deployment.xml
+F:\INT422\Assignment9\Assignment9\bin\System.Web.WebPages.Razor.xml
+F:\INT422\Assignment9\Assignment9\bin\EntityFramework.xml
+F:\INT422\Assignment9\Assignment9\bin\EntityFramework.SqlServer.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Core.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Facebook.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Cookies.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.OAuth.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Google.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.Twitter.xml
+F:\INT422\Assignment9\Assignment9\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.csprojResolveAssemblyReference.cache
+F:\INT422\Assignment9\Assignment9\obj\Debug\WebAppProjectTemplate-A9.dll
+F:\INT422\Assignment9\Assignment9\obj\Debug\WebAppProjectTemplate-A9.pdb
+F:\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.two.resources
+F:\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.artistmedia.resources
+F:\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.artistmediaagain.resources
+F:\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.final.resources
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.two.resources
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.artistmedia.resources
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.artistmediaagain.resources
+C:\Users\Jacob\Desktop\School\School Semester 4\INT422\Assignment9\Assignment9\obj\Debug\Assignment9.Migrations.final.resources

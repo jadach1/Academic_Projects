@@ -1,0 +1,42 @@
+﻿@model Assignment9.Controllers.TrackWithDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Track Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <hr />
+        <dt>
+            Sample Clip
+        </dt>
+        <dd>
+            <audio controls="controls">
+                Your browser does not support the
+                <code>audio</code> element.
+                <source src="/clip/@Model.Id" alt="@Model.Name">
+            </audio>
+        </dd>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.Composers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Composers)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

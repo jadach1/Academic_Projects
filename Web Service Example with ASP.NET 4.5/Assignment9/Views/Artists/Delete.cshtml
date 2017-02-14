@@ -1,0 +1,78 @@
+﻿@model Assignment9.Controllers.ArtistBase
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Artist @Model.Name</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ArtistBase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.Name)</b>
+        </dt>
+
+        <dd class="table-striped">
+            @Html.DisplayFor(model => model.Name)
+            <hr />
+        </dd>
+
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.BirthName)</b>
+        </dt>
+
+        <dd class="table-striped">
+            @Html.DisplayFor(model => model.BirthName)
+            <hr />
+        </dd>
+
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.BirthOrStartDate)</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthOrStartDate)
+            <hr />
+        </dd>
+
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.UrlArtist)</b>
+        </dt>
+
+        <dd>
+            <img src=" @Html.DisplayFor(model => model.UrlArtist) " width="150" height="100" alt="Artist @Model.Name" />
+            <hr />
+        </dd>
+
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.Genre)</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+            <hr />
+        </dd>
+
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.Profile)</b>
+        </dt>
+
+        <dd>
+            <div class="panel panel-default panel-body">
+                @Html.Raw(Model.Profile)
+            </div>
+        </dd>     
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

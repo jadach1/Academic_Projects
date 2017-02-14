@@ -1,0 +1,68 @@
+﻿@model Assignment9.Controllers.AlbumBase
+
+@{
+    ViewBag.Title = "Details";
+    var userAccount = new Assignment9.Controllers.UserAccount(User as System.Security.Claims.ClaimsPrincipal);
+}
+
+<h2>Album Details - @Model.Name</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.Name)</b>
+        </dt>
+
+        <dd class="table-striped">
+            @Html.DisplayFor(model => model.Name)
+            <hr />
+        </dd>
+
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.ReleaseDate)</b>
+        </dt>
+
+        <dd class="table-striped">
+            @Html.DisplayFor(model => model.ReleaseDate)
+            <hr />
+        </dd>
+
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.UrlAlbum)</b>
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.UrlAlbum)" width="150" height="100" alt="Album  @Model.Name" />
+            <hr />
+        </dd>
+
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.Genre)</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+            <hr />
+        </dd>
+
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.Description)</b>
+        </dt>
+
+        <dd>
+            <div class="panel panel-default panel-body">
+                @Html.Raw(Model.Description)
+            </div>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index") 
+
+    @if (userAccount.HasRoleClaim("Clerk"))
+    {
+        @Html.Raw(" | ")
+        @Html.ActionLink("Add Track to Album", "AddTrack", new { id = Model.Id })
+    }  
+</p>
