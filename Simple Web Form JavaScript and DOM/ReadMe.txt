@@ -1,0 +1,1 @@
+This is a simple web form using JavaScript, CSS, HTML and DOM to present a registration form to a user.
