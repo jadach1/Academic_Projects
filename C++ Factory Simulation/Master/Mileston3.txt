@@ -1,0 +1,1488 @@
+Script started on Tue 19 Apr 2016 10:06:16 PM EDT
+jadach1@matrix:~/oop345/Milestone3> whoami
+jadach1
+jadach1@matrix:~/oop345/Milestone3> cat Factory.h Job.h Machine.h CustomerOrderManager.h TaskManager.h ItmMa[K[K[KemManager.h [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[KCustomerOrder.h TaskManager.h Task.h ItemMA[Kanagger.h Item.h CSV_READER.h 
+#pragma once
+#include "Job.h"
+#include "Machine.h"
+#include <string>
+#include <vector>
+#include <queue>
+#include <iostream>
+
+
+namespace milestone {
+	class Factory: public TaskManager, ItemManager, OrderManager, Job {
+		OrderManager* factoryorders;
+		ItemManager* factoryitems;
+		TaskManager* factorytasks;
+		std::vector<Job> jobs;  // Holds customer orders
+		std::vector<Machine> machinez; // Holds Tasks
+		int Day; // factory day tracker
+	public:
+		Factory(): Day(0) {}
+		Factory(TaskManager* t, ItemManager* i, OrderManager* o) {  
+			// sets pointers to the class instances of task, item and order which have already been created.
+			Day = 0;
+			std::cout << "Welcome to the Simulation Factory!\n";
+			std::cout << "**********************************\n";
+			factorytasks = t; factoryitems = i; factoryorders = o;
+			CustomerOrderAndItemCheck(); // Verify all items in order exist!
+			FindSourceNode(); // Calculate Source Node
+			LoadJobs(); // Load jobs from customer orders to jobs vector
+			std::cout << "Today we will have " << jobs.size() << " jobs to Install... Lets Begin!\n\n\n\n";
+			LoadMachinez();
+			RunFactory();
+			std::cout << "\nWE HAVE SUCCESSFULLY SIMULATED INSTALLATION OF ALL OCUSTOMER ORDERS\n";
+		}
+		void display() {
+			// Test to see all values are pointing to the correct space in memory
+			std::cout << "tasks inside factory =\n";
+			for (TaskDataElements* p = factorytasks->tasks; p->NotEmpty(); p = p->next)
+			{
+				p->displayData();
+			}
+			std::cout << "items inside factory =\n";
+			for (ItemDataElements* p = factoryitems->items; p->NotEmpty(); p = p->next)
+			{
+				p->displayData();
+			}
+			std::cout << "orders inside factory =\n";
+			for (OrderDataElements* p = factoryorders->orders; p->NotEmpty(); p = p->next)
+			{
+				p->displayData();
+			}
+		}
+		void CustomerOrderAndItemCheck() { //Checks to make sure the item ordered by the customer exists
+			OrderDataElements* ordercheck = factoryorders->orders; // Set pointer to the inherited pointer in the original orders class
+			for (ordercheck; ordercheck->NotEmpty(); ordercheck = ordercheck->next)
+			{
+				bool found = false;
+				std::vector<std::string> CustList = ordercheck->GetList();
+				for (int i = 0; i < CustList.size(); i++) {
+					for (ItemDataElements* itemcheck = factoryitems->items; itemcheck->NotEmpty(); itemcheck = itemcheck->next)
+					{
+						if (CustList[i] == itemcheck->GetName()) found = true;
+					}
+					if (found == false)
+						throw std::string("No Item found in item data from customer order regarding-->" + CustList[i]);
+				}
+			}
+		}
+		void FindSourceNode() {
+			//This function will query tasks, and calculate what is a source and what is a sink
+			for (TaskDataElements* p = factorytasks->tasks; p->NotEmpty(); p = p->next)
+			{
+				std::string pname;  
+				if (p->PassExists()) // if a passed item exists to install, we will copy the name
+				{
+					pname = p->GetPass();
+					for (TaskDataElements* k = factorytasks->tasks; k->NotEmpty(); k = k->next)
+					{
+						// Find the Node which will install this passed item and add to its source variable
+						if (pname == k->GetName()) {  // node found, increment sink/source
+							k->AddSource(); // k cannot be a source
+							p->AddSink(); // p cannot be a sink
+							break;
+						}
+					}
+				}
+				if (p->FailExists()) { // if a item to be removed exists,
+					pname = p->GetFail();
+					for (TaskDataElements* k = factorytasks->tasks; k->NotEmpty(); k = k->next)
+					{
+						// Find the Node which will install this passed item and add to its source variable
+						if (pname == k->GetName()) {  // node found, increment sink/source
+							k->AddSource(); // k cannot be a source
+							p->AddSink(); // p cannot be a sink
+							break;
+						}
+					}
+				}
+			}
+			
+		}
+		void DisplaySource() {
+			std::cout << "Nodes source n sink!/n";
+			for (TaskDataElements* p = factorytasks->tasks; p->NotEmpty(); p = p->next)
+			{
+				std::cout << p->GetSource() << "/ " << p->GetSink() << "<--" << p->GetName() << "\n";
+			}
+		}
+		void LoadJobs() {
+			OrderDataElements* od = factoryorders->orders;
+			for (od; od->NotEmpty(); od = od->next) {
+				Job job(od); //Create an instance of job which stores the current pointer of orderdataelements which holds 1 set of orders
+				jobs.push_back(job);  // pushes back the job just created into the vector of jobs to be completed
+			}
+		}//loads jobs into vector
+		void DisplayJobs()
+		{
+			std::cout << "size of jobs is " << jobs.size() << "\n" <<
+				"Inside jobs \n";
+			for (int i = 0; i < jobs.size(); i++)
+			{
+				for (int k = 0; k < jobs[i].GetJobSize(); k++)
+					std::cout << jobs[i].GetJob(k) << ", ";
+				std::cout << "\n";
+			}
+		} // displays all jobs inside vector jobs
+		void LoadMachinez() {
+			TaskDataElements* td = factorytasks->tasks;
+			for (td; td->NotEmpty(); td = td->next)  //push everything into a  vector
+			{
+				ItemDataElements* od = factoryitems->items;
+				Machine machine(td,od);
+				machinez.push_back(machine);
+			}
+		}
+		void RunFactory() {
+			// find out which machine the job will be sent too next
+			auto FindNextMachine = [=](std::string str, int i, ItemDataElements* id)->int{
+				if (str == "bogey"){
+					return 0;
+				}
+				for (int k = 0; k < machinez.size(); k++){
+					if (str == machinez[k].MachineName())
+					{
+						return k;
+					}
+				}
+			};
+			// Find the Source Machine
+			auto FindSourceMachine = [=]()->int{
+				for (int k = 0; k < machinez.size(); k++){
+					if (machinez[k].SourceMachine()) {
+						return k;
+					}
+				}
+			};
+			// Run Machine by check if jobs is complete or not
+			std::string str;					
+			// List through jobs and complete them
+			for (int i = 0; i < jobs.size(); i++) {
+				// Find Source Machine!
+				int begin = FindSourceMachine();
+				std::cout << "Job Details->"; jobs[i].OderDetails();
+				while (!jobs[i].IsComplete()) {					
+							ItemDataElements* id = factoryitems->items;
+							machinez[begin].RunMachine(jobs[i], id, Day);// Passes list of jobs to source machine to check for install , remove / pass,fail
+								str = machinez[begin].GetNext();
+								begin = FindNextMachine(str, i, id);
+								if (str == "bogey"){
+									break;
+								}
+							} // while
+				std::cout << "----------------------MOVING TO NEXT JOB-----------------------------\n\n";
+				} // for
+		}
+	};
+
+} // namespace
+#pragma once
+#include "CustomerOrderManager.h" 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <vector>
+
+namespace milestone {
+	class Job : public OrderManager {
+		std::vector<bool>installed;
+		std::vector<std::string>jobs;
+		std::string CustomerName;
+		std::string CustomerProduct;
+	public:
+		Job(){}
+		Job(OrderDataElements* od)
+		{// returns list of jobs from customer
+			jobs = od->GetList();
+			CustomerName = od->Getcustomer();
+			CustomerProduct = od->GetProduct();
+			installed.resize(jobs.size(),false);
+		}
+		int GetJobSize() { return jobs.size(); }
+		int GetInstallSize() { return installed.size(); }
+		void OderDetails() {
+			std::cout << " Customer : " << CustomerName;
+			std::cout << " Ordered: " << CustomerProduct;
+			std::cout << " Parts: ";
+			for (int i = 0; i < jobs.size(); i++) {
+				std::cout << jobs[i] << " ";
+			}
+			std::cout << "\n";
+		}
+		void UpdateInstall(bool boo, int i) { installed[i] = boo; }
+		bool GetInstalled(int i) { return installed[i]; }
+		std::vector<std::string> GetJobs() {
+			return jobs;
+		}
+		std::string GetJob(int i)
+		{
+			if (jobs.size() > i)
+				return jobs[i];
+			else
+				return "Empty Job Bracket";
+		}
+		bool IsComplete() {
+			bool complete;
+			for (int i = 0; i < installed.size(); i++)
+				complete = installed[i];
+			return complete;
+		} // Function will query through installed, if anything i uninstalled it will return false
+	};
+
+}#pragma once
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <queue>
+#include "Job.h"
+#include <time.h>
+
+namespace milestone {
+	class Machine: public TaskManager, ItemManager {
+		bool installer;
+		bool remover;
+		bool sink;
+		bool source;
+		std::string name, pass, fail;
+		std::queue<std::string> inputQ;
+		Job job;
+	public:
+		Machine() :installer(false), remover(false), sink(false), source(false) {}
+		Machine(TaskDataElements* td, ItemDataElements* p)
+		{
+			name = td->GetName();  // establish task name
+			pass = td->GetPass();
+			fail = td->GetFail();
+			installer = false; remover = false;
+			if (td->GetSink() == 0)  //establish if its a sink or not
+				sink = true;
+			else
+				sink = false;
+			if (td->GetSource() == 0) // establish if this is a source!
+				source = true;
+			else
+				source = false;
+			// establish whether its a remover or installer
+			for (p; p->NotEmpty(); p = p->next)
+			{
+				if (name == p->GetInstall()) {
+					installer = true;
+					break;
+				}
+				if (name == p->GetRemover()) {
+					remover = true;
+					break;
+				}
+			}	 // end of for			
+		}
+		std::string MachineName() { return name; }
+		std::string getpass() { return pass; }
+		std::string getfail() { return fail; }
+		bool isInstaller() { return installer; }
+		bool isRemover() { return remover; }
+		bool SourceMachine() { return source; }
+		void RunMachine(Job &j, ItemDataElements* ID, int &Day)
+		{
+			bool set = false;
+			std::string Item; // item to be installed
+			if (sink != true) {
+				std::cout << "***********************MACHINE " << name << " *******************************************\n\n";
+				/****************CHECK WHICH ITEMS NEEDS INSTALLATION******************************/
+				for (int i = 0; i < j.GetInstallSize(); i++) {
+					if (!j.GetInstalled(i)) { // if false we will run machine further
+						 Item = j.GetJob(i);
+						std::cout << "Looking to install " << Item << "\n";
+						set = false;
+						// run query to find what kind of item it is snf if it needs to be removed/installed
+						ItemDataElements* id = ID; // reset the list of pointers to the start
+						for (id; id->NotEmpty() && installer == true && set == false; id = id->next) {
+							//std::cout << "Installer Machine Looking to install -> " << j.GetJob(i);
+							std::string ins = id->GetInstall();
+							
+								if (installer == true && Item == id->GetName() && ins == name) {		// if item matches item in id then install and update						
+									std::cout << "*****SUCCESS-INSTALLING****->" << j.GetJob(i) << "\n";									
+										j.UpdateInstall(true, i);
+										set = true;
+									break;
+								}
+						}// for
+					} //if				
+				} // for
+				if (set == false) // if the set flag is false, their were no matches throughout the whole loop
+				 { std::cout << "NOT US! This Machine is for " << name << "\n---------------------------\n"; } 
+				if (remover == true)
+				{
+					std::cout << name << "Move job to Next Machine!\n-----------------------------------\n";
+				}
+				std::cout << "***********************NEXT MACHINE*******************************************\n\n";
+			} // sink 
+			else  { 
+				++Day;  
+				std::cout << "This Machine is a sink....Day Over...Ending at" << 
+					name << "\n***********************************Day-" << 
+					Day <<"-Is Complete***********************\n\n"; } // else sink is this
+			}  // end of function
+		std::string GetNext() {
+			// This is like an inspector, checks if the machine has a passed and/or fail and will send it to that machine
+			if (fail.empty() && !pass.empty()) return pass;
+			if (pass.empty() && !fail.empty()) return fail;
+			if (!pass.empty() && !fail.empty())
+			{
+				// flip a coin.... if > 7 then it will fail
+				int rando = rand() % 10;
+				if (rando > 7)
+					return fail;
+				else
+					return pass;
+			}
+			else return "bogey";  //if their is no pass or fail this will be marked as a bogey
+		}
+	};
+	}
+#pragma once
+#include <fstream>
+#include<vector>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include "CustomerOrder.h"
+extern const std::string GraphOrder = "GraphOrder.gv";
+
+namespace milestone {
+
+	class OrderManager : public Order {
+		int count; //counts number of elements in TaskDateElements
+	public:
+		class OrderDataElements {  // This class holds all the information regarding the task, slots, passed and failed which will be written to the graph
+			std::string customer;
+			std::string product;
+			std::vector<std::string>orderlist;
+		public:
+			OrderDataElements* next;
+			OrderDataElements() :next(nullptr) {  }
+			OrderDataElements(OrderDataElements fakeorders, OrderDataElements* orders)  //overloaded constructor for when we pass in fakeorders
+			{
+				customer = fakeorders.Getcustomer(); product = fakeorders.GetProduct();
+				orderlist = fakeorders.GetList();  next = orders;
+			}
+			~OrderDataElements() {}
+			void Setcustomer(std::string n) { trim(n); if (n[0] != '\0') customer = n; }  // set the customer string and erase and leftover whitespaces
+			void Setproduct(std::string n) { trim(n); if (n[0] != '\0') product = n;   }
+			void SetList(std::string n) { trim(n); ConvertToUpperCase(n);  if (n[0] != '\0') orderlist.push_back(n); }
+			std::string Getcustomer() { return customer; }
+			std::string GetProduct() { return product; }
+			std::vector<std::string> GetList() { return orderlist; }  // returns a vector
+			std::string GetListField(int field) { return orderlist[field]; }// returns a string from inside the vector
+			int SizeList() { return orderlist.size(); }  // returns the size of the orderlist
+			bool NotEmpty() { if (customer[0] != '\0') return true; else return false; }  // if object not empty return true, otherwise return false 
+			void Reset() { customer[0] = '\0';  
+			for (int i = 0; i < orderlist.size(); i++)
+				orderlist[i] = '\0';
+							} // Resets object to safe empty state
+			std::string& trim(std::string& str)  // trims white spaces at the start and end of a string
+			{
+				//std::cout << "size begin-->" << str.size() << "size after-->";  
+				while (!str.empty() && isspace(str[0]))
+					str.erase(0, 1);
+				while (!str.empty() && isspace(str[str.size() - 1]))
+					str.erase(str.size() - 1, 1);
+				//std::cout << "size-->" << str.size() << "\n";
+				return str;
+			}
+			std::string& ConvertToUpperCase(std::string& str)  // converts a string to upper case
+			{
+				if (str[0] != '\0')
+				{
+					for (int i = 0; i < str.length(); i++)
+					{
+						str[i] = toupper(str[i]);
+					}
+				}
+				return str;
+			}
+			void displayData() {  //generically print data to screen
+				std::cout << customer;
+				for (int i = 0; i < orderlist.size(); i++){
+					std::cout << " ,"<< orderlist[i];
+				}
+				std::cout << "\n";
+			}
+		};  // class datatasks
+		OrderDataElements* orders;
+		OrderManager(){
+			count = 0;
+			//display();
+		}
+		OrderManager(const std::vector<std::vector<std::string> > temp) : Order(temp)
+		{
+			auto error = [](std::string message, std::string type, std::string found){ // checks for errors when parsing
+				throw message + "expected ->" + type + "found->" + found + "\n";
+			};
+
+			auto isNotEmpty = [](std::string str)->bool{
+				if (str.empty()) return false;  // check if parameter is empty
+				else return true;
+			};
+			
+			if (sizeone() > 0){ // checks to make sure their is data in vector and allocates memory;		
+				orders = new OrderDataElements; // Create a new task data element to point to nullptr
+				orders->next = nullptr;
+				for (int line = sizeone()-1; line >= 0; line--){  // copies line by line all the fields in the vector holding the task/list/customerorder
+					OrderDataElements fakeorders; // Make an object to hold properties to be copied
+					if (isNotEmpty(Parameter(line, 0))) fakeorders.Setcustomer(Parameter(line, 0));
+					else error(std::string("looking for customer"), std::string(" in Customer Orders, "), (Parameter(line, 0)));
+						if (isNotEmpty(Parameter(line, 1))) fakeorders.Setproduct(Parameter(line, 1));
+						else error(std::string("looking for product"), std::string(" in Customer Orders, "), (Parameter(line, 1)));
+							for (int field = 2; field < sizetwo(line); field++){  // figure out the size of the 2nd dimension in the fileholder array
+								// define elements and parse into fakeorders
+								if (isNotEmpty(Parameter(line, field))) fakeorders.SetList(Parameter(line, field));
+								else error(std::string("looking for Order customer"), std::string(" in Customer Orders, "), (Parameter(line, field)));			
+					} // for field
+					orders = new OrderDataElements(fakeorders, orders);
+					fakeorders.Reset();  // delete faketasks to reset all valeus.
+				} // for line
+				//std::cout << "Order Data Elements--->\n";
+				//graphOrders();  // Call Graph for Tasks
+			}// if
+		} // end of constructor
+		~OrderManager(){}
+		void display()  //displays item list in Task Class
+		{
+			std::cout << "OrderManager display \n";
+			int line = sizeone();
+			for (int i = 0; i < line; i++)
+			{
+				int field = sizetwo(i);
+				std::cout << "size of array-->" << line << "/ Size of field--->" << field << "\n";
+				std::cout << "Values pulled are: ";
+				for (int k = 0; k < field; k++)
+				{
+					std::string parm(Parameter(i, k));
+					std::cout << parm << ", ";
+				}
+				std::cout << "\n";
+			}
+			std::cout << "end of Ordermanager display\n";
+		}
+		void graphOrders()
+		{
+			std::cout << "open graph orders\n";
+			std::vector<std::string> consistency;  // for consistency check
+			std::ofstream os;
+			os.open(GraphOrder); // create file
+			if (os.is_open()) {
+				os << "digraph Orders{\n";
+				os << R"(node[style="filled",fillcolor="grey"])" << "\n";
+				/*for (TaskDataElements* p = tasks; p->NotEmpty(); p = p->next) {
+				p->displayData(os);
+				}*/
+				// Create .gv file with conditions to print graph using graphviz
+				for (OrderDataElements* p = orders; p->NotEmpty(); p = p->next) {															
+					for (int i = 0; i < p->SizeList(); i++)
+						os << "\"" << p->GetListField(i) << "\"" << "->" << "\"" << p->Getcustomer() << "==" << p->GetProduct() << "\"" << "[color=black]"<<"\n";				
+				}  // end of for
+				os << "}";
+				os.close();  // done with file, CLOSE IT!!!
+
+				//std::cout << "leaving graph\n";
+				const std::string cmd
+					= "dot -Tpng " + GraphOrder + " > " + GraphOrder + ".png";
+					system(cmd.c_str());
+			}
+			else throw std::string("unable to open file");
+		}
+		
+	};
+
+} // customerspace
+#pragma once
+#include <vector>
+namespace milestone {
+
+
+	class Order {
+		std::vector<std::vector<std::string> > OrderList;
+	public:
+		Order() {}
+		Order(const std::vector<std::vector<std::string> >& pass)
+		{
+			OrderList = pass;
+			//display();
+		}
+		~Order()
+		{
+			//delete this;
+		}
+		long sizethree()const {
+			return sizeof(OrderList);
+		}
+		size_t sizeone()const //returns how many lines their are in the 2D vector
+		{
+			return OrderList.size();
+		}
+		size_t sizetwo(const int line)const  // returns how many fields their are in the vector line
+		{
+			return OrderList[line].size();
+		}
+		std::string Parameter(const int line, const int field)
+		{
+			return OrderList[line][field];
+		}
+		std::vector<std::vector<std::string> >& GetList()
+		{
+			return OrderList;
+		}
+		void display()
+		{
+			std::cout << "diplsaying Task List Entity\n";
+			for (auto line : OrderList) {
+				for (auto field : line)
+					std::cout << field << ", ";
+				std::cout << "\n";
+			}
+			std::cout << "Ending Task List entity \n\n";
+		}
+	};
+}
+
+
+#pragma once
+#include <fstream>
+#include<vector>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include "Task.h"
+extern const std::string GraphTask = "GraphTask.gv";
+
+namespace milestone {
+
+	class TaskManager : public Task {
+	public:
+		class TaskDataElements {  // This class holds all the information regarding the task, slots, passed and failed which will be written to the graph
+			std::string name, passed, failed;
+			int slots;
+			bool PassedExists;
+			bool FailedExists;
+			int sink;  // this value will increase if this node is pointing to another node.  0 means its a sink
+			int source;  // this value will increase if another node is pointing to this node.  0 means its a source
+			public:
+				TaskDataElements* next;
+				TaskDataElements() :slots(1), sink(0), source(0), PassedExists(false), FailedExists(false), next(nullptr) {  }
+			TaskDataElements(TaskDataElements faketasks, TaskDataElements* tasks)
+			{
+				name = faketasks.GetName(); passed = faketasks.GetPass(); failed = faketasks.GetFail();
+				slots = faketasks.GetSlot(); next = tasks; sink = faketasks.sink; source = faketasks.source; 
+				PassedExists = faketasks.PassedExists; FailedExists = faketasks.FailedExists;
+			}
+			~TaskDataElements() { }
+			void SetName(std::string n) { ConvertToUpperCase(n); name = trim(n); }  // set the name string and erase and leftover whitespaces
+			void SetPass(std::string n) { ConvertToUpperCase(n); passed = trim(n); } // set passed string after trim
+			void SetFail(std::string n) { ConvertToUpperCase(n); failed = trim(n); } // set failed string after trim
+			void SetSlot(int n) { slots = n; }
+			void PassOn(bool n) { PassedExists = n; } // Sets a flag for whether their is a value for the passed param
+			void FailOn(bool n) { FailedExists = n; } // Sets a flag for whether their is a value for the failed param
+			void AddSink() { sink++; }  // increment sink, 0 means it's a sink. gg
+			void AddSource() { source++; }// increment source, 0 means it's a source
+			bool PassExists() const{ return PassedExists;}
+			bool FailExists() const{ return FailedExists; }
+			int GetSink() const { return sink; }
+			int GetSource() const { return source; }
+ 			std::string GetName() const{ return name; }
+			std::string GetPass() const{ return passed; }
+			std::string GetFail() const{ return failed; }
+			int GetSlot() const{ return slots; }
+			bool NotEmpty() { if (name[0] != '\0') return true; else return false; }  // if object not empty return true, otherwise return false 
+			void Reset() { name[0] = '\0'; passed[0] = '\0'; failed[0] = '\0'; slots = 0; } // Resets object to safe empty state
+			std::string& trim(std::string& str)  // trims white spaces at the start and end of a string
+			{
+				//std::cout << "size begin-->" << str.size() << "size after-->";  
+				while (!str.empty() && isspace(str[0]))
+					str.erase(0, 1);
+				while (!str.empty() && isspace(str[str.size() - 1]))
+					str.erase(str.size()-1, 1);
+				//std::cout << "size-->" << str.size() << "\n";
+				return str;
+			}
+			std::string& ConvertToUpperCase(std::string& str)  // converts a string to upper case
+			{
+				if (str[0] != '\0')
+				{
+					for (int i = 0; i < str.length(); i++)
+					{
+						str[i] = toupper(str[i]);
+					}
+				}
+				return str;
+			}
+			void displayData() {  //generically print data to screen
+				std::cout << name << slots << passed << failed << "\n";
+			}
+		};  // class datatasks
+		TaskDataElements* tasks;
+		TaskManager(){
+			//display();
+		}
+		TaskManager(const std::vector<std::vector<std::string> > temp) : Task(temp)
+		{
+		auto error = [](std::string message, std::string type, std::string found){ // checks for errors when parsing
+			throw message + "expected ->" + type + "found->" + found + "\n";
+		};
+
+		auto isTaskName = [](std::string str)->bool{ 
+			if (str.empty()) return false;  // check if parameter is empty
+			if (!isalnum(str[0]) && str[0] != '_' && str[0] != '-') return false;
+			else return true;
+		};
+		auto isTaskNum = [](std::string n)->bool{
+			std::stringstream ss(n);
+			int i;
+			if (ss >> i) return true;
+			else return false;
+		};
+		if (sizeone() > 0){ // checks to make sure their is data in vector and allocates memory;		
+			tasks = new TaskDataElements; // Create a new task data element to point to nullptr
+			tasks->next = nullptr;
+			for (int line = sizeone()-1; line >= 0; line--){  // copies line by line all the fields in the vector holding the task/list/customerorder
+				TaskDataElements faketasks; // Make an object to hold properties to be copied
+				for (int field = sizetwo(line); field > 0; field--){  // figure out the size of the 2nd dimension in the fileholder array
+					switch (field){ // grab the vector field of i and parse data
+					case 4:
+						if (isTaskName(Parameter(line, 3))) { faketasks.SetFail(Parameter(line, 3)); faketasks.FailOn(true); }
+						else faketasks.FailOn(false);
+						break;
+					case 3:
+						if (isTaskName(Parameter(line, 2))) { faketasks.SetPass(Parameter(line, 2)); faketasks.PassOn(true); }
+						else faketasks.PassOn(false);
+						break;
+					case 2:
+						if (isTaskNum(Parameter(line, 1))){ faketasks.SetSlot(stoi(Parameter(line, 1))); }
+						else error(std::string("looking for Slots"), std::string("Tasks"), (Parameter(line, 1)));
+						break;
+					case 1:
+						if (isTaskName(Parameter(line, 0))) faketasks.SetName(Parameter(line, 0));
+						else error(std::string("looking for Name"), std::string("Tasks"), Parameter(line, 0));
+						break;
+					default:
+						error(std::string("No Parameters Found in "), std::string("Tasks"), std::string("none"));
+					} // switch
+				} // for field
+				tasks = new TaskDataElements(faketasks, tasks);
+				faketasks.Reset();  // delete faketasks to reset all valeus.
+			} // for line
+		}// if
+		} // end of constructor
+		~TaskManager()
+		{
+			//delete this;
+		}
+	
+		void display()  //displays item list in Task Class
+		{
+			std::cout << "TaskManager display \n";
+			int line = sizeone();
+			for (int i = 0; i < line; i++)
+			{
+				int field = sizetwo(i);
+				std::cout << "size of array-->" << line << "/ Size of field--->" << field << "\n";
+				std::cout << "Values pulled are: ";
+				for (int k = 0; k < field; k++)
+				{
+					std::string parm(Parameter(i, k));
+					std::cout <<  parm << ", ";
+				}
+				std::cout << "\n";
+			}				
+			std::cout << "end of taskmanager display\n";
+		}
+		void graphTasks()
+		{
+			std::vector<std::string> Consistency;
+			std::ofstream os;
+			os.open(GraphTask); // create file
+			if (os.is_open()) {
+				os << "digraph Task{\n";
+				os << R"(node[style="filled",fillcolor="grey"])" << "\n";
+				/*for (TaskDataElements* p = tasks; p->NotEmpty(); p = p->next) {
+					p->displayData(os);
+				}*/
+				// Create .gv file with conditions to print graph using graphviz
+			int i = 0;
+			for (TaskDataElements* p = tasks; p->NotEmpty(); p = p->next, i++) {
+					std::string tempName = p->GetName();  // set temp Variables for name, pass and fail
+					Consistency.push_back(tempName);
+					std::string tempPass = p->GetPass();
+					std::string tempFail = p->GetFail();
+					ConsistencyCheck(p, tempPass, tempFail,Consistency);					
+						if (p->PassExists()) 
+							os << "\"" << p->GetName() << "\""; os << "->" << "\"" << p->GetPass() << "\"" << "[color=green]" << "\n";
+						if (p->FailExists()) 
+							os << "\"" << p->GetName() << "\"" << "->" << "\"" << p->GetFail() << "\"" << "[color=red]" << "\n";
+				}  // end of for
+				os << "}";
+			        os.close();  // done with file, CLOSE IT!!!
+					// Run command line to call dot and graphviz
+				const std::string cmd 
+			         = "dot -Tpng " + GraphTask + " > " + GraphTask + ".png";
+					  system(cmd.c_str());
+			}
+			else throw std::string("unable to open file" + GraphTask);
+		}
+		void ConsistencyCheck(TaskDataElements* p, const std::string pass, const std::string fail, const std::vector<std::string> consisteny){
+			bool foundPass = false, foundFailed = false, ItemRemovedbutNotInstalled=false;
+			for (TaskDataElements* R = tasks; R->NotEmpty(); R = R->next){
+				if (pass.empty() || pass == R->GetName()) foundPass = true;
+				if (fail.empty() || fail == R->GetName()) foundFailed = true;			
+			}
+			if (foundPass == false) throw std::string("Error inside Consistency Check for Task Manager, pass data found but does not match -->" + pass);
+			if (foundFailed == false) throw std::string("Error inside Consistency Check for Task Manager, failed data found but does not match -->" + fail);
+		}
+	};
+
+} // namespace
+#pragma once
+#include <vector>
+namespace milestone {
+
+
+	class Task {
+		std::vector<std::vector<std::string> > TaskList;
+	public:
+		Task() {}
+		Task(const std::vector<std::vector<std::string> >& pass)
+		{
+			TaskList = pass;
+			//display();
+		}
+		~Task()
+		{
+			//delete this;
+		}
+		long sizethree()const {
+			return sizeof(TaskList);
+		}
+		size_t sizeone()const { //returns size of task array
+			return TaskList.size();
+		}
+		size_t sizetwo(const int field)const { // returns size of one vector inside array
+			return TaskList[field].size();
+		}
+		std::string Parameter(const int line, const int field)
+		{
+			return TaskList[line][field];
+		}
+		std::vector<std::vector<std::string> >& GetList()
+		{
+			return TaskList;
+		}
+		 void display()
+		{
+			std::cout << "diplsaying Task List Entity\n";
+			for (auto line : TaskList) {
+				for (auto field : line)
+					std::cout << field << ", ";
+				std::cout << "\n";
+			}
+			std::cout << "Ending Task List entity \n\n";
+		}
+	};
+}
+#pragma once
+#include <fstream>
+#include<vector>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include "Item.h"
+extern const std::string Graph = "GraphItem.gv";
+
+namespace milestone {
+
+	class ItemManager : public Item {
+	public:
+		class ItemDataElements {// This class holds all the information regarding the Item, slots, installer and remover, Description which will be written to the graph
+			std::string name, installer, remover, description;
+			int slots;
+		public:
+			ItemDataElements* next; 
+			ItemDataElements() :slots(1), next(nullptr) {  }  // Default constructor
+			ItemDataElements(ItemDataElements fakeitems, ItemDataElements* items) // intializes a new ItemManager, copying from faktasks and assigning the next* to the previous node in the list
+			{
+				name = fakeitems.GetName(); installer = fakeitems.GetInstall(); remover = fakeitems.GetRemover();
+				slots = fakeitems.GetSlot(); description = fakeitems.GetDesc();  next = items;
+			}
+			~ItemDataElements() { }
+			void SetName(std::string n) { name = ConvertToUpperCase(trim(n)); }  // set the name string and erase and leftover whitespaces
+			void setInstall(std::string n) { installer = ConvertToUpperCase(trim(n)); } // set installer string after trim
+			void setRemove(std::string n) { remover = ConvertToUpperCase(trim(n)); } // set remover string after trim
+			void SetDesc(std::string n) { description = trim(n); } // set description string after trim
+			void SetSlot(int n) { slots = n; }
+			std::string GetName() { return name; }
+			std::string GetInstall() { return installer; }
+			std::string GetRemover() { return remover; }
+			std::string GetDesc() { return description; }
+			int GetSlot() { return slots; }
+			bool NotEmpty() { 
+				if (name[0] != '\0') return true; 
+				else return false; }  // if object not empty return true, otherwise return false 
+			void Reset() { name[0] = '\0'; installer[0] = '\0'; remover[0] = '\0'; slots = 0; description[0] = '\0'; } // Resets object to safe empty state
+			std::string& trim(std::string& str)  // trims white spaces at the start and end of a string
+			{
+				//std::cout << "size begin-->" << str.size() << "size after-->";  
+				while (!str.empty() && isspace(str[0]))
+					str.erase(0, 1);
+				while (!str.empty() && isspace(str[str.size() - 1]))
+					str.erase(str.size() - 1, 1);
+				//std::cout << "size-->" << str.size() << "\n";
+				return str;
+			}
+			std::string& ConvertToUpperCase(std::string& str)  // converts a string to upper case
+			{
+				if (str[0] != '\0')
+				{
+					for (int i = 0; i < str.length(); i++)
+					{
+						str[i] = toupper(str[i]);
+					}
+				}
+				return str;
+			}
+			void displayData() {  //generically print data to screen
+				std::cout << name << installer << remover << slots << description << "\n";
+			}
+		};  // class datatasks
+		ItemDataElements* items;
+		ItemManager(){
+			//display();
+		}
+		ItemManager(const std::vector<std::vector<std::string> > temp) : Item(temp)
+		{
+			auto error = [](std::string message, std::string type, std::string found){ // checks for errors when parsing
+				throw message + "expected ->" + type + "found->" + found + "\n";
+			};
+
+			auto isTaskName = [](std::string name)->bool{
+				if (name.empty()) return false;  // check if parameter is empty
+				if (!isalnum(name[0]) && name[0] != '_' && name[0] != '-') return false;
+				else return true;
+			};
+			auto isTaskNum = [](std::string n)->bool{
+				std::stringstream ss(n);
+				int i;
+				if (ss >> i) return true;
+				else return false;
+			};
+		
+			if (sizeone() > 0){ // checks to make sure their is data in vector and allocates memory;		
+				items = new ItemDataElements; // Create a new task data element to point to nullptr
+				items->next = nullptr;
+				for (int line = sizeone() - 1; line >= 0; line--){  // copies line by line all the fields in the vector holding the task/list/customerorder
+					ItemDataElements fakeitems; // Make an object to hold properties to be copied
+					for (int field = sizetwo(line); field > 0; field--){  // figure out the size of the 2nd dimension in the fileholder array
+						switch (field){ // grab the vector field of i and parse data
+						case 5:
+							fakeitems.SetDesc(Parameter(line, 4));
+							break;
+						case 4:
+							if (isTaskNum(Parameter(line, 3))){ fakeitems.SetSlot(stoi(Parameter(line, 3))); }
+							else error(std::string("looking for Slots"), std::string("Items"), (Parameter(line, 3)));
+							break;
+						case 3:
+							if (isTaskName(Parameter(line, 2))) fakeitems.setRemove(Parameter(line, 2));
+							else error(std::string("looking for remover"), std::string("Items"), Parameter(field, 2));
+							break;
+						case 2:
+							if (isTaskName(Parameter(line, 1))) fakeitems.setInstall(Parameter(line, 1));
+							else error(std::string("looking for installer"), std::string("Items"), Parameter(line, 1));
+							break;
+						case 1:
+							if (isTaskName(Parameter(line, 0))) fakeitems.SetName(Parameter(line, 0));
+							else error(std::string("looking for Name"), std::string("Items"), Parameter(line, 0));
+							break;
+						default:
+							error(std::string("No Parameters Found in "), std::string("items"), std::string("none"));
+						} // switch
+					} // for field
+					items = new ItemDataElements(fakeitems, items);
+					fakeitems.Reset();  // delete faketasks to reset all valeus.
+				} // for line
+				//graphTasks();  // Call Graph for Tasks
+				/*for (TaskDataElements* p = tasks; p; p = p->next) {
+				p->displayData();
+				}*/
+			}// if
+		} // end of constructor
+		~ItemManager(){	}
+		void display()  //displays item list in Task Class
+		{
+			std::cout << "ItemManager display \n";
+			int line = sizeone();
+			for (int i = 0; i < line; i++)
+			{
+				int field = sizetwo(i);
+				std::cout << "size of array-->" << line << "/ Size of field--->" << field << "\n";
+				std::cout << "Values pulled are: ";
+				for (int k = 0; k < field; k++)
+				{
+					std::string parm(Parameter(i, k));
+					std::cout << parm << ", ";
+				}
+				std::cout << "\n";
+			}
+			std::cout << "end of taskmanager display\n";
+		}
+		void graphTasks()
+		{
+			std::vector<std::string> consistency;  // for consistency check
+			std::ofstream os;
+			os.open(Graph); // create file
+			if (os.is_open()) {	
+				// Create .gv file with conditions to print graph using graphviz
+				os << "digraph Task{\n";
+				os << R"(node[style="filled",fillcolor="grey"])" << "\n";
+				for (ItemDataElements* p = items; p->NotEmpty(); p = p->next) {
+					std::string tempName = p->GetName();  // set temp Variables for name, pass and fail
+					std::string tempPass = p->GetInstall();
+					consistency.push_back(p->GetInstall());
+					std::string tempFail = p->GetRemover();
+					InstallRemoveCheck(p);
+					os << "\"" << "Item-" + p->GetName() << "\"" << "[shape=box][color=blue]\n";
+					if (tempPass[0] != '\0')
+					{
+						os << "\"" << "Installer-" + p->GetInstall() + "\"" << "[color=green]\n";
+						if (tempFail[0] != '\0')
+							os << "\"" << "Remover-" + p->GetRemover() + "\"" << "[color=red]\n";
+					}
+					if (tempPass[0] != '\0')
+						os << "\"" << "Item-" + tempName << "\"" << "->" << "\"" << "Installer-" + tempPass << "\"" << "\n";		
+						if (tempFail[0] != '\0')
+							os << "\"" << "Item-" + tempName << "\"" << "->" << "\"" << "Remover-" + tempFail << "\"" << "\n";					
+					}  // end of for
+				os << "}";
+			        os.close();
+				const std::string cmd = "dot -Tpng " + Graph + " > " + Graph + ".png";
+				system(cmd.c_str());
+			}
+			else throw std::string("unable to open file");
+		}
+		void InstallRemoveCheck(ItemDataElements* p)  //Ensures all installer or remover task refereces exist
+		{
+			std::string n = p->GetName();
+			if (n.empty()) throw std::string("No name in data for Item data, revalidate data");
+			std::string inst = p->GetInstall();
+			if (inst.empty()) throw std::string("No Installer in data for Item data, revalidate data");
+			std::string rem = p->GetRemover();
+			if (rem.empty()) p->setRemove("Remove " + inst);
+		}
+
+	};
+
+
+} // namespace
+#pragma once
+#include <vector>
+namespace milestone {
+
+
+	class Item {
+		std::vector<std::vector<std::string> > ItemList;
+	public:
+		Item() {}
+		Item(const std::vector<std::vector<std::string> >& pass)
+		{
+			ItemList = pass;
+			//display();
+		}
+		~Item()
+		{
+			//delete this;
+		}
+		long sizethree()const {
+			return sizeof(ItemList);
+		}
+		size_t sizeone()const //returns how many lines their are in the 2D vector
+		{ 
+			return ItemList.size();
+		}
+		size_t sizetwo(const int line)const  // returns how many fields their are in the vector line
+		{
+			return ItemList[line].size();
+		}
+		std::string Parameter(const int line, const int field)
+		{
+			return ItemList[line][field];
+		}
+		std::vector<std::vector<std::string> >& GetList()
+		{
+			return ItemList;
+		}
+		void display()
+		{
+			std::cout << "diplsaying Task List Entity\n";
+			for (auto line : ItemList) {
+				for (auto field : line)
+					std::cout << field << ", ";
+				std::cout << "\n";
+			}
+			std::cout << "Ending Task List entity \n\n";
+		}
+	};
+}
+#pragma once
+#include "Task.h"
+#include "TaskManager.h"
+#include "ItemManager.h"
+#include "CustomerOrderManager.h"
+#include "Factory.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <vector>
+
+namespace milestone {
+	class CSV {
+		TaskManager* taskmanager;
+		ItemManager* itemmanager;
+		OrderManager* ordermanager;
+		Factory* factory;
+		char delimeter;
+		std::vector<std::vector<std::string> > FileHolder;
+	public:
+		CSV() {}
+		CSV(const char* filename, const char* del, const char* filenameTwo, const char* delTwo, const char* filenameThree, const char* delThree)
+		{
+			ParseData(filename, del);
+			FileHolder.clear();
+			ParseData(filenameTwo, delTwo);
+			FileHolder.clear();
+			ParseData(filenameThree, delThree);
+			FileHolder.clear();
+			taskmanager->graphTasks();
+			itemmanager->graphTasks();
+			ordermanager->graphOrders();
+			factory = new Factory(taskmanager, itemmanager, ordermanager);
+			//factory->display();
+		} // ctor overloaded
+		~CSV(){
+			delete taskmanager->tasks;
+			delete taskmanager;
+			delete itemmanager->items;
+			delete itemmanager;
+			delete ordermanager->orders;
+			delete ordermanager;
+		}
+char GetDelimeter() { return delimeter; }  // returns the delimeter to parse dat
+void ParseData(const char* filename, const char* del)  // receives a file and parses the data, then stores it in a vector before creating an instance of task/item or customerorer
+{
+	delimeter = del[0];
+	std::ifstream is(filename);
+	//SetDelimeter(is);
+	//std::cout << GetDelimeter() << "<---- delimeter\n";
+	if (is.is_open())
+	{
+		while (!is.eof()) {
+			bool whitespace = false;
+			while (is.peek() == ' ' || is.peek() == '\t' || is.peek() == '\0')
+			{
+				//std::cout << "caught";	
+				is.ignore();
+			}
+			std::string line;
+			getline(is, line);
+			//std::cout << line << "\n";
+			std::vector<std::string>temp;
+			std::stringstream ss(line);
+			if (line != "" && line != "\t" && !line.empty() && line != "\n" && line != "\r" && line != " ") {  //checks to see if line has a value
+				while (getline(ss, line, GetDelimeter()))
+				{
+					if (line != " " && line != "") // checks if line is a whitespace
+					{
+						//std::cout << "this line being copied is-->" << line << "\n";
+						temp.push_back(line);
+						while (ss.peek() == ' ')
+						{
+							ss.ignore();
+						}
+					}
+					else { whitespace = true; }
+				}// while
+			} // if line != ""
+			else { whitespace = true; } // if line has no valye
+
+			if (whitespace == false)
+				FileHolder.push_back(temp);
+		} // WHILE NOT EOF
+		CreateItem(filename);  // will create either a task, item or customerorder class
+	}
+	else {
+		throw std::string("Cannot open file: ") + filename;
+	}
+	is.close();
+}
+void CreateItem(const std::string filename) {
+	int count = 0;
+			// Check for the number of fields in file holder to determin if it is a task, item or customer order 4 = task, 5 = item, 6 = customer order
+	for (int line = 0; line < FileHolder.size(); line++){
+		if (FileHolder[line].size() > count )
+		count = FileHolder[line].size();
+		//std::cout << count << "<---couynt\n";
+	}
+	if (count == 4 ) {
+		taskmanager = new TaskManager(FileHolder);  // Create new Task Manager with list from CSV reader
+		//std::cout << "Size of Vector FileHolder ->" << sizeof(FileHolder) << "\n";
+		//std::cout << "Size of taskmanager class ->" << sizeof(taskmanager) << "\n";
+		//std::cout << "Size of taskmanager Vector ->" << taskmanager->sizethree() << "\n";
+		//std::cout << "Size of this ->" << sizeof(this) << "\n";
+		//std::cout << "Size of *this ->" << sizeof(*this) << "\n";
+	}
+	else if (count == 5)
+	{
+		//displaythree();
+		itemmanager = new ItemManager(FileHolder);
+		//display();		
+	}
+	else if (count > 5)
+	{
+		ordermanager = new OrderManager(FileHolder);
+		//display();		
+	}
+	else
+		throw std::string("Found No Matching Class Types  for") + filename;
+}
+
+void display()
+{
+	for (int i = 0; i < FileHolder.size(); i++)
+	{
+		for (int k = 0; k < FileHolder[i].size(); k++)
+		{
+			std::cout << FileHolder[i][k] << ", ";
+		}
+		std::cout << "\n";
+	}
+	//std::cout << FileHolder.size() << "  Size\n";
+} // display
+
+void displaytwo()
+{
+	for (auto cline : FileHolder) {
+		for (auto fieldvs : cline)
+			std::cout << fieldvs << "\n";
+		std::cout << "\n";
+	}
+}
+void displaythree()
+{
+	//std::cout << FileHolder.begin() << " , " << FileHolder.end() << ", Fileholder\n";
+	for (auto line = FileHolder.begin(); line < FileHolder.end(); line++) {
+		for (auto field = line->begin(); field < line->end(); field++)
+			std::cout << *field;
+		std::cout << "\n";
+	}
+}
+void SetDelimeter(std::ifstream& is)
+{
+	while (!is.eof())
+	{
+		if (is.peek() == ',') { delimeter = ','; break; }
+		if (is.peek() == '|') { delimeter = '|'; break; }
+		is.ignore();
+	}
+	is.clear();
+	is.seekg(0);
+}
+	};
+} // namespace
+
+
+jadach1@matrix:~/oop345/Milestone3> !M3
+M3 GBTaskList.dat '|' GBItemList.dat '|' GBCustomerOrders.dat '|'
+Error: GraphTask.gv:21: syntax error near line 21
+context:  >>> -> <<< ""[color=green]
+open graph orders
+Welcome to the Simulation Factory!
+**********************************
+Today we will have 4 jobs to Install... Lets Begin!
+
+
+
+Job Details-> Customer : Fardad Soleimanloo Ordered: Dell Precision 3600 Parts: I5 DDR 266 DDR 333 
+***********************MACHINE REMOVE POWER SUPPLY *******************************************
+
+Looking to install I5
+Looking to install DDR 266
+Looking to install DDR 333
+NOT US! This Machine is for REMOVE POWER SUPPLY
+---------------------------
+REMOVE POWER SUPPLYMove job to Next Machine!
+-----------------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE POWER SUPPLY *******************************************
+
+Looking to install I5
+Looking to install DDR 266
+Looking to install DDR 333
+NOT US! This Machine is for POWER SUPPLY
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE MOTHERBOARD *******************************************
+
+Looking to install I5
+Looking to install DDR 266
+Looking to install DDR 333
+NOT US! This Machine is for MOTHERBOARD
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE CPU *******************************************
+
+Looking to install I5
+*****SUCCESS-INSTALLING****->I5
+Looking to install DDR 266
+Looking to install DDR 333
+NOT US! This Machine is for CPU
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE MEMORY *******************************************
+
+Looking to install DDR 266
+*****SUCCESS-INSTALLING****->DDR 266
+Looking to install DDR 333
+*****SUCCESS-INSTALLING****->DDR 333
+***********************NEXT MACHINE*******************************************
+
+----------------------MOVING TO NEXT JOB-----------------------------
+
+Job Details-> Customer : Joseph Hughes Ordered: HP Z230 Parts: I7 DDR 300 
+***********************MACHINE REMOVE POWER SUPPLY *******************************************
+
+Looking to install I7
+Looking to install DDR 300
+NOT US! This Machine is for REMOVE POWER SUPPLY
+---------------------------
+REMOVE POWER SUPPLYMove job to Next Machine!
+-----------------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE POWER SUPPLY *******************************************
+
+Looking to install I7
+Looking to install DDR 300
+NOT US! This Machine is for POWER SUPPLY
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE MOTHERBOARD *******************************************
+
+Looking to install I7
+Looking to install DDR 300
+NOT US! This Machine is for MOTHERBOARD
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE CPU *******************************************
+
+Looking to install I7
+*****SUCCESS-INSTALLING****->I7
+Looking to install DDR 300
+NOT US! This Machine is for CPU
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE MEMORY *******************************************
+
+Looking to install DDR 300
+*****SUCCESS-INSTALLING****->DDR 300
+***********************NEXT MACHINE*******************************************
+
+----------------------MOVING TO NEXT JOB-----------------------------
+
+Job Details-> Customer : Chris Szalwinski Ordered: HP Z350 Parts: I7 DDR 333 SSD NVIDIAGPU 
+***********************MACHINE REMOVE POWER SUPPLY *******************************************
+
+Looking to install I7
+Looking to install DDR 333
+Looking to install SSD
+Looking to install NVIDIAGPU
+NOT US! This Machine is for REMOVE POWER SUPPLY
+---------------------------
+REMOVE POWER SUPPLYMove job to Next Machine!
+-----------------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE POWER SUPPLY *******************************************
+
+Looking to install I7
+Looking to install DDR 333
+Looking to install SSD
+Looking to install NVIDIAGPU
+NOT US! This Machine is for POWER SUPPLY
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE MOTHERBOARD *******************************************
+
+Looking to install I7
+Looking to install DDR 333
+Looking to install SSD
+Looking to install NVIDIAGPU
+NOT US! This Machine is for MOTHERBOARD
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE CPU *******************************************
+
+Looking to install I7
+*****SUCCESS-INSTALLING****->I7
+Looking to install DDR 333
+Looking to install SSD
+Looking to install NVIDIAGPU
+NOT US! This Machine is for CPU
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE MEMORY *******************************************
+
+Looking to install DDR 333
+*****SUCCESS-INSTALLING****->DDR 333
+Looking to install SSD
+Looking to install NVIDIAGPU
+NOT US! This Machine is for MEMORY
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE REMOVE MEMORY *******************************************
+
+Looking to install SSD
+Looking to install NVIDIAGPU
+NOT US! This Machine is for REMOVE MEMORY
+---------------------------
+REMOVE MEMORYMove job to Next Machine!
+-----------------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE MEMORY *******************************************
+
+Looking to install SSD
+Looking to install NVIDIAGPU
+NOT US! This Machine is for MEMORY
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE SSD *******************************************
+
+Looking to install SSD
+Looking to install NVIDIAGPU
+NOT US! This Machine is for SSD
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE GPU *******************************************
+
+Looking to install SSD
+Looking to install NVIDIAGPU
+*****SUCCESS-INSTALLING****->NVIDIAGPU
+***********************NEXT MACHINE*******************************************
+
+----------------------MOVING TO NEXT JOB-----------------------------
+
+Job Details-> Customer : Elliott Coleshill Ordered: HP Apollo 1000 Parts: I7 DDR 400 POWER SUPPLY AMDGPU 
+***********************MACHINE REMOVE POWER SUPPLY *******************************************
+
+Looking to install I7
+Looking to install DDR 400
+Looking to install POWER SUPPLY
+Looking to install AMDGPU
+NOT US! This Machine is for REMOVE POWER SUPPLY
+---------------------------
+REMOVE POWER SUPPLYMove job to Next Machine!
+-----------------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE POWER SUPPLY *******************************************
+
+Looking to install I7
+Looking to install DDR 400
+Looking to install POWER SUPPLY
+*****SUCCESS-INSTALLING****->POWER SUPPLY
+Looking to install AMDGPU
+NOT US! This Machine is for POWER SUPPLY
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE MOTHERBOARD *******************************************
+
+Looking to install I7
+Looking to install DDR 400
+Looking to install AMDGPU
+NOT US! This Machine is for MOTHERBOARD
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE CPU *******************************************
+
+Looking to install I7
+*****SUCCESS-INSTALLING****->I7
+Looking to install DDR 400
+Looking to install AMDGPU
+NOT US! This Machine is for CPU
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE REMOVE CPU *******************************************
+
+Looking to install DDR 400
+Looking to install AMDGPU
+NOT US! This Machine is for REMOVE CPU
+---------------------------
+REMOVE CPUMove job to Next Machine!
+-----------------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE CPU *******************************************
+
+Looking to install DDR 400
+Looking to install AMDGPU
+NOT US! This Machine is for CPU
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE MEMORY *******************************************
+
+Looking to install DDR 400
+*****SUCCESS-INSTALLING****->DDR 400
+Looking to install AMDGPU
+NOT US! This Machine is for MEMORY
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE SSD *******************************************
+
+Looking to install AMDGPU
+NOT US! This Machine is for SSD
+---------------------------
+***********************NEXT MACHINE*******************************************
+
+***********************MACHINE GPU *******************************************
+
+Looking to install AMDGPU
+*****SUCCESS-INSTALLING****->AMDGPU
+***********************NEXT MACHINE*******************************************
+
+----------------------MOVING TO NEXT JOB-----------------------------
+
+
+WE HAVE SUCCESSFULLY SIMULATED INSTALLATION OF ALL OCUSTOMER ORDERS
+jadach1@matrix:~/oop345/Milestone3> exit
+exit
+
+Script done on Tue 19 Apr 2016 10:07:42 PM EDT
